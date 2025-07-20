@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+
+  --color-primary: #EA4C89;         /* Dribbble Pink */
+  --color-primary-hover: #F06292;   /* Hover Pink */
+  --color-gray-dark: #3D3D4E;       /* Dark Gray */
+  --color-gray-light: #E7E7E9;      /* Light Gray */
+  --color-gray-muted: #6E6D7A;      /* Muted Text Gray */
+  --color-gray-border: #D1D1D1;     /* Border Gray */
+
+  --font-sans:  var(--font-source-serif), Georgia, 'Times New Roman', Times, serif;
+}
+
+
