@@ -1,14 +1,14 @@
-import localFont from 'next/font/local'
+import { Source_Sans_3} from 'next/font/google'
 import Header from '../components/Header'
 import './index.css'
 
 
-const sourceSerif = localFont({
-    src: "../public/fonts/SourceSerif.woff2",
-    variable: "--font-source-serif",
-    subset: ["latin"],
-    display: 'swap'
-})
+const sourceSerif = Source_Sans_3({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'], 
+  variable: '--font-source-serif',
+  display: 'swap',
+});
 
 
 export default function Layout({children}){
