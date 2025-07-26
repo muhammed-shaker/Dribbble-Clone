@@ -20,6 +20,10 @@
 }
 
 
+*{
+  box-sizing: border-box;
+}
+
 body{
   background-color: blanchedalmond;
 }
@@ -51,3 +55,18 @@ body{
     }
 }
 
+
+.animate-fadein{
+  animation: fade-in .3s ease-in-out;
+}
+
+@keyframes fade-in{
+  from{
+    opacity: .5;
+    transform: translateX(-8px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

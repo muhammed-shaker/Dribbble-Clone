@@ -1,10 +1,11 @@
-import { ChevronDown, ChevronUp, Search } from "lucide-react";
+import { ChevronDown, ChevronUp, Search } from "lucide-react"
 import {useRef, useState } from "react"
 
-export default function SearchFrom(){
+export default function SearchFrom({activeSearchForm}){
+
     const [query, setQuery] = useState('');
     const [dropdownExpanded, setDropdownExpanded] = useState(false)
-    const [searchCategroy, setSearchCategory] = useState('shots');
+    const [searchCategroy, setSearchCategory] = useState('shots')
 
     const inputElement = useRef()
 
@@ -17,9 +18,8 @@ export default function SearchFrom(){
         }
     }
 
-    
     return (
-        <div className="absolute bottom-0 left-0 right-0 py-2 px-4 bg-white translate-y-full md:static md:translate-none md:flex-1">
+        <div className={`${activeSearchForm ? 'block animate-fadein' : 'hidden'} absolute bottom-0 left-0 right-0 py-2 px-4 bg-white translate-y-full md:static md:block md:translate-none md:flex-1`}>
             <div className="md:static flex items-center gap-2 hover:outline-3 bg-from hover:bg-white outline-pink-100 rounded-full p-2 font-roboto">
                 <input ref={inputElement} className="outline-none text-sm flex-1 px-4 placeholder-gray-700" type="text" placeholder="What are you looking for?" value={query} onChange={event => setQuery(event.target.value)}/>
                 <div className="flex items-center">
