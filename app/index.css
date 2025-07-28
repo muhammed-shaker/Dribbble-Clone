@@ -19,42 +19,9 @@
   
 }
 
-
 *{
   box-sizing: border-box;
 }
-
-body{
-  background-color: blanchedalmond;
-}
-
-.animate-expand{
-  animation: expand 1s ease-in-out forwards;
-}
-
-@keyframes expand {
-    from{
-      height: 0px;
-    }
-    to{
-      height: var(--height)
-    }
-}
-
-
-.animate-collapse{
-  animation: collapse 1s ease-in-out forwards;
-}
-
-@keyframes collapse {
-    from{
-      height: var(--height);
-    }
-    to{
-      height: 0px;
-    }
-}
-
 
 .animate-fadein{
   animation: fade-in .3s ease-in-out;
