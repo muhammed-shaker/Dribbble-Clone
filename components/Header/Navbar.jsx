@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { explore, services, categories } from '../data/links'
+import { explore, services, categories } from '../../data/links'
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
@@ -9,7 +9,7 @@ export default function Navbar({activeNavbar}){
     const [activeServices, setActiveServices] = useState(false)
     
     return (
-        <nav className={`${activeNavbar ? 'flex animate-fadein' : 'hidden'} flex-col gap-4 absolute bottom-0 translate-y-full bg-white left-0 right-0 border-t border-gray-300 p-8 lg:flex lg:static lg:translate-none lg:border-none lg:flex-row  lg:items-center lg:gap-3 lg:p-0`}>
+        <nav className={`${activeNavbar ? 'flex animate-fadein' : 'hidden'} flex-col gap-4 absolute bottom-0 translate-y-full bg-white left-0 right-0 border-t border-gray-300 p-8 lg:flex lg:static lg:translate-none lg:border-none lg:flex-row  lg:items-center lg:gap-3 lg:p-0 lg:mr-auto`}>
             
             {/* Explore  */}
             <div className="flex flex-col lg:items-center relative group">
