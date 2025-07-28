@@ -1,49 +1,98 @@
-import { ChevronDown, ChevronUp, Search } from "lucide-react"
-import {useRef, useState } from "react"
+"use client";
 
-export default function SearchFrom({activeSearchForm}){
+import { Image, Users, FileText, Search } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react"
 
-    const [query, setQuery] = useState('');
-    const [dropdownExpanded, setDropdownExpanded] = useState(false)
-    const [searchCategroy, setSearchCategory] = useState('shots')
+export default function SearchForm() {
+    const [query, setQuery] = useState('')
+    const [category, setCategory] = useState('shots')
 
-    const inputElement = useRef()
+    
+    function getFormParams(){
 
-    function changeSearchCategory(category){
-        setSearchCategory(category)
-        setDropdownExpanded(false)
+        let placeholder, keywords
 
-        if(inputElement){
-            inputElement.current.focus()
+        switch(category){
+            case "shots": 
+                placeholder = 'What type of type of design you are interested in?'
+                keywords = ['dashboard', 'landing page', 'e-commerce', 'logo']
+                break
+
+            case "designers":
+                placeholder = 'What type of designer do you need?'
+                keywords = ['app design', 'landing page', 'web design']
+                break
+
+            case "services": 
+                placeholder =  'What do you need designed?'
+                keywords = ['branding', 'logo design', 'mobile app', 'illustration']
+                break
+            default:
+                placeholder = 'What are you looking for?'
+                keywords = []
+
         }
+
+        return [placeholder, keywords]
     }
 
+    function getSearchKeywordLink(keyword){
+        if(category === 'designers'){
+            return '/designers/' + keyword
+
+        } else if(category === 'services'){
+            return '/services/search/' + keyword
+        }
+
+        return '/search/' + keyword
+    }
+
+    const [placeholder, keywords] = getFormParams()
+
+    
+
     return (
-        <div className={`${activeSearchForm ? 'block animate-fadein' : 'hidden'} absolute bottom-0 left-0 right-0 py-2 px-4 bg-white translate-y-full md:static md:block md:translate-none md:flex-1`}>
-            <div className="md:static flex items-center gap-2 hover:outline-3 bg-from hover:bg-white outline-pink-100 rounded-full p-2 font-roboto">
-                <input ref={inputElement} className="outline-none text-sm flex-1 px-4 placeholder-gray-700" type="text" placeholder="What are you looking for?" value={query} onChange={event => setQuery(event.target.value)}/>
-                <div className="flex items-center">
-                    <div className="flex flex-col relative">
-                        <button onClick={() => setDropdownExpanded(prev => !prev)} className="cursor-pointer flex items-center gap-1 font-semibold capitalize hover:text-link-hover transition">
-                        {searchCategroy}
-                        {
-                                dropdownExpanded ? <ChevronUp  className="size-3.5"/> : <ChevronDown className="size-3.5" />
-                        }
-                        </button>
-                        {
-                            dropdownExpanded && 
-                            <div className="flex flex-col absolute top-11 bg-white shadaw-xs border border-nav-dropdown-border rounded-lg min-w-[150px] p-4">
-                                <button onClick={() => changeSearchCategory('shots')} className="hover:outline outline-gray-200 hover:bg-gray-50 p-1.5 cursor-pointer rounded-lg">Shots</button>
-                                <button onClick={() => changeSearchCategory('designers')} className="hover:outline outline-gray-200 hover:bg-gray-50 p-1.5 cursor-pointer rounded-lg">Designers</button>
-                                <button onClick={() => changeSearchCategory('services')} className="hover:outline outline-gray-200 hover:bg-gray-50 p-1.5 cursor-pointer rounded-lg">Services</button>
-                            </div>
-                        }
-                    </div>
-                </div>
+        <div className="max-w-[600px] w-full">
+            <div className="flex items-center gap-4 my-6 justify-center md:justify-start">
+                <button 
+                    className={`flex items-center gap-2 rounded-full px-4 py-2  text-sm font-semibold cursor-pointer ${category === 'shots' ? 'bg-black text-white' : ''} `}
+                    onClick={() => setCategory('shots')}
+                >
+                    <Image className="size-5" />
+                    Shots 
+                </button>
+                 <button 
+                    className={`flex items-center gap-2 rounded-full px-4 py-2  text-sm font-semibold cursor-pointer ${category === 'designers' ? 'bg-black text-white' : ''} `}
+                    onClick={() => setCategory('designers')}
+                >
+                    <Users className="size-5" />
+                    Designers
+                </button>
+                 <button 
+                    className={`flex items-center gap-2 rounded-full px-4 py-2  text-sm font-semibold cursor-pointer ${category === 'services' ? 'bg-black text-white' : ''} `}
+                    onClick={() => setCategory('services')}
+                >
+                   <FileText className="size-5" />
+                    Services
+                </button>
+            </div>
+
+            <div className="flex items-center gap-2 hover:outline-3 bg-from hover:bg-white outline-pink-100 rounded-full p-2 font-roboto">
+                <input className="outline-none text-sm flex-1 px-4 placeholder-gray-700" type="text" placeholder={placeholder} value={query} onChange={event => setQuery(event.target.value)}/>
+                
                 <button className="bg-primary p-2.5 rounded-full text-white cursor-pointer">
                     <Search  className="size-5"/>
                 </button>
             </div>
+
+            <div className="flex items-center gap-4 my-6">
+                <span className="font-semibold text-sm">Popular:</span>
+                {keywords && keywords.map(keyword =>{
+                   return <Link className="border border-gray-300 rounded-full px-3 py-1.5 text-xs hover:bg-from transition" key={keyword} href={getSearchKeywordLink(keyword)}>{keyword}</Link>
+                })}
+            </div>
+
         </div>
     )
 }
