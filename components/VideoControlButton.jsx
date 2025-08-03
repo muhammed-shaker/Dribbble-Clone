@@ -1,18 +1,18 @@
 import { Pause, Play } from "lucide-react"
 import { useState } from "react"
 
-export default function VideoControlButton({video, state = true}){
-    const [playing, setPlaying] = useState(state)
+export default function VideoControlButton({videos, index}){
+    const [playing, setPlaying] = useState(true)
 
+    
     function toggle(){
-
+        const video = videos.current[index.current]
         if(playing === true)  {
-            video.current.pause()
-            console.log(video);
-            
+            video.pause()
             setPlaying(false)
+
         } else{
-            video.current.play()
+            video.play()
             setPlaying(true)
         }        
     }
