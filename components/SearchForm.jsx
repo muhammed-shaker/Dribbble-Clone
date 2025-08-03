@@ -53,7 +53,7 @@ export default function SearchForm() {
     
 
     return (
-        <div className="max-w-[600px] w-full">
+        <div>
             <div className="flex items-center gap-4 my-6 justify-center md:justify-start">
                 <button 
                     className={`flex items-center gap-2 rounded-full px-4 py-2  text-sm font-semibold cursor-pointer ${category === 'shots' ? 'bg-black text-white' : ''} `}
@@ -86,12 +86,17 @@ export default function SearchForm() {
                 </button>
             </div>
 
-            <div className="flex items-center gap-4 my-6">
-                <span className="font-semibold text-sm">Popular:</span>
-                {keywords && keywords.map(keyword =>{
-                   return <Link className="border border-gray-300 rounded-full px-3 py-1.5 text-xs hover:bg-from transition" key={keyword} href={getSearchKeywordLink(keyword)}>{keyword}</Link>
-                })}
-            </div>
+            {
+                keywords && 
+                <div className="flex items-center gap-4 my-6 flex-wrap">
+                    <span className="font-semibold text-sm">Popular:</span>
+                    {
+                        keywords.map(keyword =>{
+                        return <Link className="border border-gray-300 rounded-full px-3 py-1.5 text-xs hover:bg-from transition" key={keyword} href={getSearchKeywordLink(keyword)}>{keyword}</Link>
+                        })
+                    }
+                </div>
+            }
 
         </div>
     )

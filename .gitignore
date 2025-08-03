@@ -4,4 +4,7 @@ node_modules/
 # Next.js build output
 .next/
 
+# TODO
+todo.md
+
 

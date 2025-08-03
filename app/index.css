@@ -37,3 +37,16 @@
     transform: translateX(0);
   }
 }
+
+.animate-video-fadein{
+  animation: video-fade-in .4s ease-in-out;
+}
+
+@keyframes video-fade-in{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
