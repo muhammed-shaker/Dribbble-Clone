@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { explore, services, categories } from '../../data/links'
+import categories  from '@/data/categories'
+import { explore, services} from '@/data/navigationLinks'
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
@@ -41,7 +42,7 @@ export default function Navbar({activeNavbar}){
                     <div className="flex flex-col gap-4 border-t border-gray-300 pt-4 mt-4 lg:mt-0">
                         {
                             categories.map(category =>(
-                                <Link href={category.href} className="hover:text-link-hover transition lg:text-sm" key={category.title}>
+                                <Link href={`/shots/popular/${category.slug}`} className="hover:text-link-hover transition lg:text-sm" key={category.title}>
                                     {category.title}
                                 </Link>
                             ))

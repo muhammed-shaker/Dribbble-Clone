@@ -1,5 +1,8 @@
-import HeroAnimations from "../components/HeroAnimations";
-import SearchForm from "../components/SearchForm";
+import HeroAnimations from '@/components/HeroAnimationsSection'
+import SearchForm from '@/components/searchForm'
+import ShotsFilter from '@/components/ShotsFilter'
+import { FilterContextProvider } from '@/contexts/ShotsFilterContext'
+
 
 export default function Page(){
     return (
@@ -12,6 +15,10 @@ export default function Page(){
                 </section>
                 <HeroAnimations />
            </div>
+
+           <FilterContextProvider>
+                <ShotsFilter />
+           </FilterContextProvider>
         </div>
     )
 }

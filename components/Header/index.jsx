@@ -1,10 +1,10 @@
-"use client"; 
+'use client'
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import Logo from '../Logo'
+import Logo from '@/components/Logo'
 import Navbar from './Navbar'
-import SearchForm from './Form'
+import SearchForm from './Search'
 import { AlignLeft, Search, X } from 'lucide-react'
 
 

@@ -50,3 +50,8 @@
     opacity: 1;
   }
 }
+
+.filter-input:has(input:focus){
+  border: 1.5px solid rgba(234,100,217,0.4);
+  outline: 4px solid rgba(234,100,217,0.1);
+}

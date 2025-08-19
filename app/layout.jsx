@@ -1,5 +1,5 @@
 import { Roboto, Source_Sans_3} from 'next/font/google'
-import Header from '../components/Header'
+import Header from '@/components/Header'
 import './index.css'
 
 

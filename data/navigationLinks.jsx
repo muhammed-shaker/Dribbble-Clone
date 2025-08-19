@@ -3,47 +3,47 @@ import { FileText, Headset, Search, Sparkles, Tag, TrendingUp } from "lucide-rea
 export const categories = [
     {
         title: "Product Design",
-        href: "shots/popular/product-design",
+        href: "/shots/popular/product-design",
     },
     {
         title: "Web Design",
-        href: "shots/popular/web-design",
+        href: "/shots/popular/web-design",
     },
     {
         title: "Animation",
-        href: "shots/popular/animation",
+        href: "/shots/popular/animation",
     },
     {
         title: "Branding",
-        href: "shots/popular/branding",
+        href: "/shots/popular/branding",
     },
     {
         title: "Illustration",
-        href: "shots/popular/illustration",
+        href: "/shots/popular/illustration",
     },
     {
         title: "Mobile",
-        href: "shots/popular/mobile",
+        href: "/shots/popular/mobile",
     },
     {
         title: "Typography",
-        href: "shots/popular/typography",
+        href: "/shots/popular/typography",
     },
     {
         title: "Print",
-        href: "shots/popular/print"
+        href: "/shots/popular/print"
     }
 ]
 
 export const explore = [
     {
         title: "Popular",
-        href: "shots/explore",
+        href: "/shots/explore",
         icon: <TrendingUp className="size-5" />
     },
     {
         title: "New and Notenorthy",
-        href: "shots/recent",
+        href: "/shots/recent",
         icon: <Sparkles className="size-5" />
     }
 ]

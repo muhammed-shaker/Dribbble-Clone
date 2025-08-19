@@ -1,9 +1,8 @@
-"use client";
-
-import animations from "../data/heroAnimations"
-import Link from "next/link";
-import { useEffect, useRef } from "react";
-import VideoControlButton from "./VideoControlButton";
+'use client'
+import animations from '@/data/heroAnimations'
+import Link from 'next/link';
+import { useEffect, useRef } from 'react'
+import VideoControlButton from './VideoControlerButton'
 
 export default function HeroAnimations(){
     const videoElements = useRef([])
